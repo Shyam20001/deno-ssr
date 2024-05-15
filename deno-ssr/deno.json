@@ -1,0 +1,20 @@
+{
+  "tasks": {
+    "dev": "deno run --watch --allow-net --allow-read -A --unstable server.jsx",
+    "build": "deno run --allow-read --allow-write --allow-net build.js",
+    "deploy": "deployctl deploy --entrypoint=server.jsx"
+  },
+  "compilerOptions": {
+    "jsx": "react",
+    "jsxFactory": "React.createElement",
+    "jsxFragmentFactory": "React.Fragment"
+  },
+  "deploy": {
+    "project": "c28f3914-a695-46d8-872c-9730e1bd4a3f",
+    "exclude": [
+      "**/node_modules"
+    ],
+    "include": [],
+    "entrypoint": "server.jsx"
+  }
+}
