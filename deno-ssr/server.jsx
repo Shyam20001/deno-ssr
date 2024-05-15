@@ -2,6 +2,7 @@
 import { serve } from "https://deno.land/std@0.182.0/http/server.ts";
 import { serveFile } from "https://deno.land/std@0.182.0/http/file_server.ts";
 import { renderToString } from "https://esm.sh/react-dom@17.0.2/server";
+import { join } from "https://deno.land/std@0.224.0/path/mod.ts";
 import React from "https://esm.sh/react@17.0.2";
 import App from "./components/App.jsx";
 
@@ -57,12 +58,12 @@ const handler = async (req) => {
 
   // Serve static client.js file
   if (pathname === "/static/client.js") {
-    return serveFile(req, "./static/client.js");
+    return serveFile(req, join(Deno.cwd(), "static/client.js"));
   }
 
   // Serve static CSS file
   if (pathname === "/static/main.css") {
-    return serveFile(req, "./static/client.css");
+    return serveFile(req, join(Deno.cwd(), "static/client.css"));
   }
 
   // Render React app
